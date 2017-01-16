@@ -9,6 +9,7 @@ namespace Aesonus\Darts\Contracts;
  */
 interface DartInterface
 {
+    public function __construct(PanelInterface $panel = null, ZoneInterface $zone = null);
 
     /**
      * 
