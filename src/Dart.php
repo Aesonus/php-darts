@@ -35,7 +35,7 @@ class Dart implements DartInterface
         $this->panel = $panel;
         $this->zone = $zone;
         //Needs a score interface
-        
+        $this->score = Config::newDartScoreObject();
     }
 
     public function panel()

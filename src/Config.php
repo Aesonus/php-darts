@@ -11,10 +11,10 @@ class Config implements Contracts\ConfigInterface
 {
     /**
      * 
-     * @return string
+     * @return DartScoreInterface
      */
-    public static function dartScoreClass()
+    public static function newDartScoreObject()
     {
-        return DartScore::class;
+        return new DartScore();
     }
 }

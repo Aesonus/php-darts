@@ -10,7 +10,7 @@ interface ConfigInterface
 {
     /**
      * 
-     * @return string 
+     * @return DartScoreInterface
      */
-    public static function dartScoreClass();
+    public static function newDartScoreObject();
 }
