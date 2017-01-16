@@ -9,11 +9,40 @@ namespace Aesonus\Darts;
  */
 class Dart implements Contracts\DartInterface
 {
+    /**
+     *
+     * @var Contracts\ZoneInterface 
+     */
     protected $zone;
+    
+    /**
+     *
+     * @var Contracts\ScoreInterface 
+     */
     protected $score;
-    protected $color;
+    
+    /**
+     *
+     * @var Contracts\PanelInterface 
+     */
+    protected $panel;
 
     public function __construct()
+    {
+        
+    }
+
+    public function panel()
+    {
+        
+    }
+
+    public function score()
+    {
+        
+    }
+
+    public function zone()
     {
         
     }

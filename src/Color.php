@@ -7,7 +7,7 @@ namespace Aesonus\Darts;
  *
  * @author cory
  */
-class Color implements Contracts\DartColorInterface
+class Color implements Contracts\PanelColorInterface
 {
 
     const BLACK = 0;

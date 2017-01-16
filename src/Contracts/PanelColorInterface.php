@@ -6,7 +6,7 @@ namespace Aesonus\Darts\Contracts;
  *
  * @author cory
  */
-interface DartColorInterface
+interface PanelColorInterface
 {
     /**
      * Gets the color
@@ -16,7 +16,7 @@ interface DartColorInterface
     
     /**
      * 
-     * @param type $color
+     * @param int $color Colors should be represented with ints
      * @throws Exceptions\InvalidColorException
      * @return $this 
      */
