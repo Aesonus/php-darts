@@ -18,13 +18,13 @@ class Dart implements DartInterface
      *
      * @var ZoneInterface 
      */
-    protected $zone;
+    protected $zone = null;
 
     /**
      *
      * @var PanelInterface 
      */
-    protected $panel;
+    protected $panel = null;
 
     public function __construct(Contracts\PanelInterface $panel, Contracts\ZoneInterface $zone)
     {

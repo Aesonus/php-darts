@@ -50,7 +50,7 @@ interface ZoneInterface
      * @return int Dart score after modification
      * @throws DartNotInitializedException
      */
-    public function miss(Contracts\DartInterface $dart);
+    public function miss(DartInterface $dart);
 
     /**
      * 
@@ -58,7 +58,7 @@ interface ZoneInterface
      * @return int Dart score after modification
      * @throws DartNotInitializedException
      */
-    public function double(Contracts\DartInterface $dart);
+    public function double(DartInterface $dart);
 
     /**
      * 
@@ -66,7 +66,7 @@ interface ZoneInterface
      * @return int Dart score after modification
      * @throws DartNotInitializedException
      */
-    public function outerSingle(Contracts\DartInterface $dart);
+    public function outerSingle(DartInterface $dart);
 
     /**
      * 
@@ -74,7 +74,7 @@ interface ZoneInterface
      * @return int Dart score after modification
      * @throws DartNotInitializedException
      */
-    public function triple(Contracts\DartInterface $dart);
+    public function triple(DartInterface $dart);
 
     /**
      * 
@@ -82,7 +82,7 @@ interface ZoneInterface
      * @return int Dart score after modification
      * @throws DartNotInitializedException
      */
-    public function innerSingle(Contracts\DartInterface $dart);
+    public function innerSingle(DartInterface $dart);
 
     /**
      * 
@@ -90,7 +90,7 @@ interface ZoneInterface
      * @return int Dart score after modification
      * @throws DartNotInitializedException
      */
-    public function outerBullseye(Contracts\DartInterface $dart);
+    public function outerBullseye(DartInterface $dart);
 
     /**
      * 
@@ -98,5 +98,5 @@ interface ZoneInterface
      * @return int Dart score after modification
      * @throws DartNotInitializedException
      */
-    public function innerBullseye(Contracts\DartInterface $dart);
+    public function innerBullseye(DartInterface $dart);
 }

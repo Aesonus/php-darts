@@ -23,37 +23,38 @@ class Zone implements Contracts\ZoneInterface
 
     public function modify(Contracts\DartInterface $dart)
     {
-        return $this->zone($dart);
+        $modify = [$this, $this->zone];
+        return $modify($dart);
     }
 
     public function set($zone)
     {
-        
+        $this->zone = $zone;
     }
 
     public function miss(Contracts\DartInterface $dart)
     {
         return 0;
     }
-
+    
     public function double(Contracts\DartInterface $dart)
     {
-        return $panel->get() * 2;
+        return $dart->panel()->get() * 2;
     }
 
     public function outerSingle(Contracts\DartInterface $dart)
     {
-        return $panel->get();
+        return $dart->panel()->get();
     }
 
     public function triple(Contracts\DartInterface $dart)
     {
-        return $panel->get() * 3;
+        return $dart->panel()->get() * 3;
     }
 
     public function innerSingle(Contracts\DartInterface $dart)
     {
-        return $panel->get();
+        return $dart->panel()->get();
     }
 
     public function outerBullseye(Contracts\DartInterface $dart)
