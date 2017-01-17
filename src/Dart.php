@@ -16,7 +16,7 @@ class Dart implements DartInterface
 
     /**
      *
-     * @var Contracts\ZoneInterface 
+     * @var ZoneInterface 
      */
     protected $zone;
 
@@ -26,24 +26,33 @@ class Dart implements DartInterface
      */
     protected $panel;
 
-    public function __construct(PanelInterface $panel, ZoneInterface $zone)
+    public function __construct(Contracts\PanelInterface $panel, Contracts\ZoneInterface $zone)
     {
-        $this->panel = $panel;
         $this->zone = $zone;
+        $this->panel = $panel;
     }
-
     public function panel()
     {
+        $this->isInit();
         return $this->panel;
     }
 
     public function score()
     {
+        $this->isInit();
         return $this->zone()->modify($this);
     }
 
     public function zone()
     {
+        $this->isInit();
         return $this->zone;
+    }
+    
+    private function isInit()
+    {
+        if (in_array(NULL, [$this->zone, $this->panel])) {
+            throw new Exceptions\DartNotInitializedException;
+        }
     }
 }

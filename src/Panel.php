@@ -22,9 +22,9 @@ class Panel implements Contracts\PanelInterface
      */
     protected $panel = 0;
     
-    public function __construct($panel)
+    public function __construct(Contracts\PanelColorInterface $color)
     {
-        $this->set($panel);
+        $this->color = $color;
     }
     
     public function color()
