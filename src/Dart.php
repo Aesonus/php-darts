@@ -31,6 +31,7 @@ class Dart implements DartInterface
         $this->zone = $zone;
         $this->panel = $panel;
     }
+
     public function panel()
     {
         $this->isInit();
@@ -48,7 +49,7 @@ class Dart implements DartInterface
         $this->isInit();
         return $this->zone;
     }
-    
+
     private function isInit()
     {
         if (in_array(NULL, [$this->zone, $this->panel])) {
