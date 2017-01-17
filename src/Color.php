@@ -21,6 +21,10 @@ class Color implements Contracts\PanelColorInterface
         'green' => self::GREEN
     ];
 
+    /**
+     *
+     * @var int 
+     */
     protected $color;
 
     public function get()
@@ -31,7 +35,7 @@ class Color implements Contracts\PanelColorInterface
     public function set($color)
     {
         if (in_array($color, self::COLORS)) {
-            
+            $this->color = $color;
         } else {
             throw new Exceptions\InvalidColorException();
         }
