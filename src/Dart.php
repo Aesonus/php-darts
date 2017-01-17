@@ -24,7 +24,7 @@ class Dart implements DartInterface
      *
      * @var int 
      */
-    protected $score;
+    protected $score = null;
 
     /**
      *
@@ -45,6 +45,9 @@ class Dart implements DartInterface
 
     public function score()
     {
+        if (!isset($this->score)) {
+            $this->score = $this->zone()->modify($this);
+        }
         return $this->score;
     }
 

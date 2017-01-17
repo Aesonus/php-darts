@@ -11,6 +11,6 @@ class Double implements \Aesonus\Darts\Contracts\ZoneInterface
 {
     public function modify(\Aesonus\Darts\Contracts\DartInterface $dart)
     {
-        return $dart->getPanel() * 2;
+        return $dart->panel()->get() * 2;
     }
 }
