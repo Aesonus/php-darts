@@ -22,6 +22,11 @@ class Panel implements Contracts\PanelInterface
      */
     protected $panel = 0;
     
+    public function __construct($panel)
+    {
+        $this->set($panel);
+    }
+    
     public function color()
     {
         if (!isset($this->color)) {

@@ -7,7 +7,7 @@ namespace Aesonus\Darts\Zones;
  *
  * @author Aesonus <corylcomposinger at gmail.com>
  */
-class Single implements \Aesonus\Darts\Contracts\ZoneInterface
+abstract class Single implements \Aesonus\Darts\Contracts\ZoneInterface
 {
     public function modify(\Aesonus\Darts\Contracts\DartInterface $dart)
     {

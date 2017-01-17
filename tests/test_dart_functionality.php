@@ -11,6 +11,6 @@ require __DIR__ . '/../vendor/autoload.php';
 Darts\Config::colorClass(Darts\Color::class);
 
 //Test the dart class
-$dart = new Dart((new Darts\Panel())->set(5), new Darts\Zones\Double());
+$dart = new Dart(new Darts\Panel(5), new Darts\Zones\SingleInner());
 
 dump($dart);
