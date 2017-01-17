@@ -2,7 +2,9 @@
 
 namespace Aesonus\Darts;
 
-use Aesonus\Darts\Contracts;
+use Aesonus\Darts\Contracts\DartInterface;
+use Aesonus\Darts\Contracts\PanelInterface;
+use Aesonus\Darts\Contracts\ZoneInterface;
 
 /**
  * Description of Dart
@@ -20,7 +22,7 @@ class Dart implements DartInterface
 
     /**
      *
-     * @var ScoreInterface 
+     * @var int 
      */
     protected $score;
 
@@ -34,8 +36,6 @@ class Dart implements DartInterface
     {
         $this->panel = $panel;
         $this->zone = $zone;
-        //Needs a score interface
-        $this->score = Config::newDartScoreObject();
     }
 
     public function panel()

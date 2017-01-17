@@ -13,7 +13,7 @@ interface DartInterface
 
     /**
      * 
-     * @return DartScoreInterface 
+     * @return int 
      */
     public function score();
 
