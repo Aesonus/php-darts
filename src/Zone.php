@@ -3,7 +3,6 @@
 namespace Aesonus\Darts;
 
 /**
- * Description of SingleInner
  *
  * @author Aesonus <corylcomposinger at gmail.com>
  */
