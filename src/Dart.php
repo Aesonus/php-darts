@@ -36,6 +36,7 @@ class Dart implements DartInterface
     {
         $this->panel = $panel;
         $this->zone = $zone;
+        $this->score();
     }
 
     public function panel()
