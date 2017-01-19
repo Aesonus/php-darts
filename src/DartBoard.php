@@ -19,8 +19,7 @@ class DartBoard implements Contracts\DartBoardInterface
     const VERTICAL_PANEL = [null, 19, 12, 20, 16, 17, 11, 18, 13, 15, 14, 6, 2, 8, 10, 9, 4, 5, 7, 1, 3, null];
     const DART_COLORS = [
         'single' => [
-            null,
-            Color::WHITE, Color::BLACK, Color::BLACK,
+            null,Color::WHITE, Color::BLACK, Color::BLACK,
             Color::WHITE, Color::WHITE, Color::WHITE,
             Color::BLACK, Color::BLACK, Color::WHITE,
             Color::BLACK, Color::WHITE, Color::BLACK,
@@ -29,7 +28,7 @@ class DartBoard implements Contracts\DartBoardInterface
             Color::WHITE, Color::BLACK
         ],
         'double|triple' => [
-            Color::GREEN, Color::RED, Color::RED,
+            null,Color::GREEN, Color::RED, Color::RED,
             Color::GREEN, Color::GREEN, Color::GREEN,
             Color::RED, Color::RED, Color::GREEN,
             Color::RED, Color::GREEN, Color::RED,

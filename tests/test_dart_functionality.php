@@ -65,10 +65,13 @@ try {
 }
 
 try {
-    echo 'Dart should generate a '. Darts\Exceptions\InvalidColorException::class;
+    
     $dart = $container->get('dart');
     $dart->panel()->set(0);
-    $dart->zone()->set(Darts\Zone::MISS);
+    $dart->zone()->set(Darts\Zone::DOUBLE);
+    echo "Did the dart miss? It should";
+    dump($dart->missed());
+    echo 'Dart should generate a '. Darts\Exceptions\InvalidColorException::class;
     dump($dart->color());
     dump($dart);
 } catch (\Exception $exc) {
