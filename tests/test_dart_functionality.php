@@ -84,6 +84,6 @@ try {
     $dart->panel()->set(22);
     $dart->zone()->set(Darts\Zone::DOUBLE);
 } catch (\Exception $exc) {
-    dump ($exc instanceof Darts\Exceptions\InvalidPanelException);
+    dump($exc instanceof Darts\Exceptions\InvalidPanelException);
     dump($exc);
 }
