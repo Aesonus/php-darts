@@ -2,8 +2,6 @@
 
 namespace Aesonus\Darts;
 
-use Aesonus\Darts\Exceptions\InvalidPanelException;
-
 /**
  * Description of Panel
  *
@@ -39,7 +37,7 @@ class Panel implements Contracts\PanelInterface
         if (is_int($panel) && $panel >= 0 && $panel <= static::BULLSEYE) {
             $this->panel = $panel;
         } else {
-            throw new InvalidPanelException('$panel must be an integer 0 - '
+            throw new \InvalidArgumentException('$panel must be an integer 0 - '
             . static::BULLSEYE . '. ' . $panel . ' given.');
         }
         return $this;
