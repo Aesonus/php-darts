@@ -77,3 +77,13 @@ try {
 } catch (\Exception $exc) {
     dump($exc);
 }
+
+try {
+    $dart = $container->get('dart');
+    echo 'Dart should generate a '. Darts\Exceptions\InvalidPanelException::class;
+    $dart->panel()->set(22);
+    $dart->zone()->set(Darts\Zone::DOUBLE);
+} catch (\Exception $exc) {
+    dump ($exc instanceof Darts\Exceptions\InvalidPanelException);
+    dump($exc);
+}
