@@ -20,11 +20,11 @@ class Config implements Contracts\DartsConfigInterface
     {
         if (isset($class)) {
             //Check class to make sure it implements PanelColorInterface
-            if (in_array(Contracts\PanelColorInterface::class, class_implements($class))) {
+            if (in_array(Contracts\ColorInterface::class, class_implements($class))) {
                 static::$colorClass = $class;
             } else {
                 throw new \InvalidArgumentException('$class must implement '
-                . Contracts\PanelColorInterface::class . '. ' . $class . ' given.');
+                . Contracts\ColorInterface::class . '. ' . $class . ' given.');
             }
         } else {
             return new static::$colorClass();

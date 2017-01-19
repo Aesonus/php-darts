@@ -9,30 +9,22 @@ namespace Aesonus\Darts;
  */
 class Panel implements Contracts\PanelInterface
 {
-        
+
     /**
      *
-     * @var Contracts\PanelColorInterface
+     * @var Contracts\DartBoardInterface 
      */
-    protected $color;
-    
+    protected $dartBoard;
+
     /**
      * A number to represent the panel
      * @var int 
      */
     protected $panel = 0;
-    
-    public function __construct(Contracts\PanelColorInterface $color)
+
+    public function __construct(Contracts\DartBoardInterface $dartboard)
     {
-        $this->color = $color;
-    }
-    
-    public function color()
-    {
-        if (!isset($this->color)) {
-            $this->color = Config::colorClass();
-        }
-        return $this->color;
+        $this->dartBoard = $dartboard;
     }
 
     public function get()
@@ -46,7 +38,7 @@ class Panel implements Contracts\PanelInterface
             $this->panel = $panel;
         } else {
             throw new \InvalidArgumentException('$panel must be an integer 0 - '
-                . static::BULLSEYE . '. ' . $panel . ' given.');
+            . static::BULLSEYE . '. ' . $panel . ' given.');
         }
         return $this;
     }

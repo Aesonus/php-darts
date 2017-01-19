@@ -11,7 +11,7 @@ require __DIR__ . '/../vendor/autoload.php';
 //Load the container
 $builder = new DI\ContainerBuilder();
 $builder->addDefinitions([
-    Contracts\PanelColorInterface::class => DI\object(Darts\Color::class)->
+    Contracts\ColorInterface::class => DI\object(Darts\Color::class)->
         scope(\DI\Scope::PROTOTYPE),
     Contracts\PanelInterface::class => DI\object(Darts\Panel::class)->
         scope(\DI\Scope::PROTOTYPE),
@@ -19,6 +19,7 @@ $builder->addDefinitions([
         scope(\DI\Scope::PROTOTYPE),
     Contracts\ZoneInterface::class => DI\object(Darts\Zone::class)->
         scope(\DI\Scope::PROTOTYPE),
+        Contracts\DartBoardInterface::class => \DI\object(Darts\DartBoard::class),
     'dart' => \DI\get(Contracts\DartInterface::class),
 ]);
 
@@ -30,14 +31,46 @@ $container = $builder->build();
 
 //Test the dart class
 
-/**
- * 
- * @var Darts\Dart
- */
-$dart = $container->get('dart');
+try {
+    echo 'Should generate a ' . Darts\Exceptions\DartNotThrownException::class;
+    $dart = $container->get('dart');
+    $dart->panel()->set(21);
+    //$dart->zone()->set(Darts\Zone::INNER_BULLSEYE);
+    dump($dart->color());
+    dump($dart);
+} catch (\Exception $e) {
+    dump($e);
+}
 
-$dart->panel()->set(5);
-$dart->zone()->set('double');
+try {
+    echo 'Dart should have a color of red';
+    $dart = $container->get('dart');
+    $dart->panel()->set(21);
+    $dart->zone()->set(Darts\Zone::INNER_BULLSEYE);
+    $dart->color();
+    dump($dart);
+} catch (\Exception $exc) {
+    dump($exc);
+}
 
-dump($dart);
-dump($dart->score());
+try {
+    echo 'Dart should have a color of white';
+    $dart = $container->get('dart');
+    $dart->panel()->set(1);
+    $dart->zone()->set(Darts\Zone::INNER_SINGLE);
+    dump($dart->color());
+    dump($dart);
+} catch (\Exception $exc) {
+    dump($exc);
+}
+
+try {
+    echo 'Dart should generate a '. Darts\Exceptions\InvalidColorException::class;
+    $dart = $container->get('dart');
+    $dart->panel()->set(0);
+    $dart->zone()->set(Darts\Zone::MISS);
+    dump($dart->color());
+    dump($dart);
+} catch (\Exception $exc) {
+    dump($exc);
+}

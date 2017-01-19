@@ -8,13 +8,24 @@ namespace Aesonus\Darts;
  */
 class Zone implements Contracts\ZoneInterface
 {
-
+    const MISS = 'miss';
+    const DOUBLE = 'double';
+    const TRIPLE = 'triple';
+    const OUTER_SINGLE = 'outerSingle';
+    const INNER_SINGLE = 'innerSingle';
+    const OUTER_BULLSEYE = 'outerBullseye';
+    const INNER_BULLSEYE = 'innerBullseye';
 
     /**
      * Callable for the modification method
      * @var string
      */
     protected $zone;
+    
+    public function __construct()
+    {
+        
+    } 
 
     public function get()
     {

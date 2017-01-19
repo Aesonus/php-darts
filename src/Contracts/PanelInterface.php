@@ -26,10 +26,4 @@ interface PanelInterface
      * @return $this 
      */
     public function set($panel);
-    
-    /**
-     * 
-     * @return Contracts\PanelColorInterface 
-     */
-    public function color();
 }

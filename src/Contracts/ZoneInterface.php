@@ -2,7 +2,7 @@
 
 namespace Aesonus\Darts\Contracts;
 
-use Aesonus\Darts\Exceptions\DartNotInitializedException;
+use Aesonus\Darts\Exceptions\DartNotThrownException;
 
 /**
  *
@@ -48,7 +48,7 @@ interface ZoneInterface
      * 
      * @param \Aesonus\Darts\Contracts\Contracts\DartInterface $dart
      * @return int Dart score after modification
-     * @throws DartNotInitializedException
+     * @throws DartNotThrownException
      */
     public function miss(DartInterface $dart);
 
@@ -56,7 +56,7 @@ interface ZoneInterface
      * 
      * @param \Aesonus\Darts\Contracts\Contracts\DartInterface $dart
      * @return int Dart score after modification
-     * @throws DartNotInitializedException
+     * @throws DartNotThrownException
      */
     public function double(DartInterface $dart);
 
@@ -64,7 +64,7 @@ interface ZoneInterface
      * 
      * @param \Aesonus\Darts\Contracts\Contracts\DartInterface $dart
      * @return int Dart score after modification
-     * @throws DartNotInitializedException
+     * @throws DartNotThrownException
      */
     public function outerSingle(DartInterface $dart);
 
@@ -72,7 +72,7 @@ interface ZoneInterface
      * 
      * @param \Aesonus\Darts\Contracts\Contracts\DartInterface $dart
      * @return int Dart score after modification
-     * @throws DartNotInitializedException
+     * @throws DartNotThrownException
      */
     public function triple(DartInterface $dart);
 
@@ -80,7 +80,7 @@ interface ZoneInterface
      * 
      * @param \Aesonus\Darts\Contracts\Contracts\DartInterface $dart
      * @return int Dart score after modification
-     * @throws DartNotInitializedException
+     * @throws DartNotThrownException
      */
     public function innerSingle(DartInterface $dart);
 
@@ -88,7 +88,7 @@ interface ZoneInterface
      * 
      * @param \Aesonus\Darts\Contracts\Contracts\DartInterface $dart
      * @return int Dart score after modification
-     * @throws DartNotInitializedException
+     * @throws DartNotThrownException
      */
     public function outerBullseye(DartInterface $dart);
 
@@ -96,7 +96,7 @@ interface ZoneInterface
      * 
      * @param \Aesonus\Darts\Contracts\Contracts\DartInterface $dart
      * @return int Dart score after modification
-     * @throws DartNotInitializedException
+     * @throws DartNotThrownException
      */
     public function innerBullseye(DartInterface $dart);
 }
