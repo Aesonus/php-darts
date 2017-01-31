@@ -41,6 +41,15 @@ interface DartInterface
     public function color();
     
     /**
+     * Sets the panel and zone
+     * @param type $panel must allow null
+     * @param type $zone must allow null
+     * @return $this 
+     * @throws \InvalidArgumentException
+     */
+    public function set($panel, $zone = null);
+    
+    /**
      * 
      * @return bool Whether the dart has missed or not
      * @throws DartNotThrownException

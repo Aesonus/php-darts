@@ -32,17 +32,14 @@ class Dart implements DartInterface
      * @var Contracts\ColorInterface 
      */
     protected $color = null;
-    
+
     /**
      *
      * @var Contracts\DartBoardInterface 
      */
     protected $dartBoard = null;
 
-    public function __construct(Contracts\PanelInterface $panel,
-                                Contracts\ZoneInterface $zone,
-                                Contracts\ColorInterface $color,
-                                Contracts\DartBoardInterface $dartBoard)
+    public function __construct(Contracts\PanelInterface $panel, Contracts\ZoneInterface $zone, Contracts\ColorInterface $color, Contracts\DartBoardInterface $dartBoard)
     {
         $this->zone = $zone;
         $this->panel = $panel;
@@ -67,12 +64,23 @@ class Dart implements DartInterface
     }
 
     public function color()
-    {        
+    {
         $this->isThrown();
         $this->refresh();
         return $this->color;
     }
-    
+
+    public function set($panel, $zone = null)
+    {
+        if (isset($panel)) {
+            $this->panel->set($panel);
+        }
+        if (isset($zone)) {
+            $this->zone->set($zone);
+        }
+        return $this;
+    }
+
     public function missed()
     {
         $this->isThrown();
@@ -87,7 +95,7 @@ class Dart implements DartInterface
             return true;
         }
     }
-    
+
     /**
      * Sets the color of the dart if it isn't set
      * @return void 
