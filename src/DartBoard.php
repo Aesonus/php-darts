@@ -25,7 +25,7 @@ class DartBoard implements Contracts\DartBoardInterface
             Color::BLACK, Color::WHITE, Color::BLACK,
             Color::BLACK, Color::BLACK, Color::WHITE,
             Color::WHITE, Color::WHITE, Color::BLACK,
-            Color::WHITE, Color::BLACK
+            Color::WHITE, Color::BLACK, null, 'outer' => null, 'inner' => null
         ],
         'double|triple' => [
             null,Color::GREEN, Color::RED, Color::RED,
@@ -34,12 +34,12 @@ class DartBoard implements Contracts\DartBoardInterface
             Color::RED, Color::GREEN, Color::RED,
             Color::RED, Color::RED, Color::GREEN,
             Color::GREEN, Color::GREEN, Color::RED,
-            Color::GREEN, Color::RED
+            Color::GREEN, Color::RED, null
         ],
         'bullseye' => [
             'inner' => Color::RED,
             'outer' => Color::GREEN,
-        ]
+        ]        
     ];
 
     public function verticalPanel(Contracts\PanelInterface $panel)
@@ -52,8 +52,11 @@ class DartBoard implements Contracts\DartBoardInterface
         $panel = $dart->panel()->get();
         $zone = $dart->zone()->get();
         foreach (static::DART_COLORS as $pattern => $colors) {
-            if (preg_match("/$pattern/i", $zone) > 0) {
-                return $panel != Panel::BULLSEYE ? $colors[$panel] : $colors[strtolower(mb_substr($zone, 0, 5))];
+            $matches = [];
+            if (preg_match_all("/$pattern/i", $zone, $matches) === 1) {
+                return mb_substr_count($zone, 'Bullseye') < 1 ? $colors[$panel] : $colors[strtolower(mb_substr($zone, 0, 5))];
+            } elseif (count($matches) < 1) {
+                return null;
             }
         }
     }

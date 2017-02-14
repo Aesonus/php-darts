@@ -34,7 +34,7 @@ class Color implements Contracts\ColorInterface
 
     public function set($color)
     {
-        if (in_array($color, static::COLORS)) {
+        if (in_array($color, static::COLORS) || $color == null) {
             $this->color = $color;
         } else {
             throw new Exceptions\InvalidColorException();

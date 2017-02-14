@@ -84,7 +84,7 @@ class Dart implements DartInterface
     public function missed()
     {
         $this->isThrown();
-        return $this->panel()->get() === 0;
+        return $this->panel()->get() === 0 || $this->zone()->get() === Zone::MISS;
     }
 
     public function isThrown()
@@ -107,7 +107,8 @@ class Dart implements DartInterface
                 $this->color->set($this->dartBoard->getColor($this));
             }
         } catch (DartNotThrownException $e) {
-            //Do nothing
+            // Do nothing, we just don't want this particular method to throw
+            // anything as it is basically a conditional
         }
     }
 }
