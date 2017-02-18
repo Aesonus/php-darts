@@ -7,18 +7,18 @@ namespace Aesonus\Darts;
  *
  * @author cory
  */
-class Color implements Contracts\PanelColorInterface
+class Color implements Contracts\ColorInterface
 {
 
-    const BLACK = 0;
-    const WHITE = 1;
-    const RED = 2;
-    const GREEN = 3;
+    const BLACK = 'black';
+    const WHITE = 'white';
+    const RED = 'red';
+    const GREEN = 'green';
     const COLORS = [
-        'black' => self::BLACK,
-        'white' => self::WHITE,
-        'red' => self::RED,
-        'green' => self::GREEN
+        self::BLACK,
+        self::WHITE,
+        self::RED,
+        self::GREEN
     ];
 
     /**
@@ -34,10 +34,11 @@ class Color implements Contracts\PanelColorInterface
 
     public function set($color)
     {
-        if (in_array($color, self::COLORS)) {
+        if (in_array($color, static::COLORS) || $color == null) {
             $this->color = $color;
         } else {
             throw new Exceptions\InvalidColorException();
         }
+        return $this;
     }
 }

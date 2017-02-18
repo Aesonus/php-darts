@@ -6,11 +6,11 @@ namespace Aesonus\Darts\Contracts;
  *
  * @author cory
  */
-interface PanelColorInterface
+interface ColorInterface
 {
     /**
      * Gets the color
-     * @return int
+     * @return string
      */
     public function get();
     
