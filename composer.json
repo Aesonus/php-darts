@@ -10,7 +10,6 @@
         }
     ],
     "require": {
-        "symfony/var-dumper": "^3.2",
         "php-di/php-di": "^5.4"
     },
     "require-dev": {
