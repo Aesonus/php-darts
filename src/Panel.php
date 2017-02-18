@@ -38,7 +38,7 @@ class Panel implements Contracts\PanelInterface
             $this->panel = $panel;
         } else {
             throw new Exceptions\InvalidPanelException('$panel must be an integer 0 - '
-            . static::BULLSEYE . '. ' . $panel . ' given.');
+            . static::BULLSEYE);
         }
         return $this;
     }
