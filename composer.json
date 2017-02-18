@@ -9,11 +9,9 @@
             "email": "corylcomposinger@gmail.com"
         }
     ],
-    "require": {
-        "php-di/php-di": "^5.4"
-    },
     "require-dev": {
-        "phpunit/phpunit": "5.5.*"
+        "phpunit/phpunit": "5.5.*",
+        "php-di/php-di": "^5.4"
     },
     "autoload": {
         "psr-4": {
