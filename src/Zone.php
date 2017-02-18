@@ -40,7 +40,12 @@ class Zone implements Contracts\ZoneInterface
 
     public function set($zone)
     {
-        $this->zone = $zone;
+        if (!in_array($zone, Contracts\ZoneInterface::ZONES, true)) {
+            throw new Exceptions\InvalidZoneException;
+        } else {
+            $this->zone = $zone;
+        }
+        return $this;
     }
 
     public function miss(Contracts\DartInterface $dart)

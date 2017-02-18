@@ -9,7 +9,7 @@ use Interop\Container\ContainerInterface;
  *
  * @author cory
  */
-class PanelTest extends PHPUnit\Framework\TestCase
+class ZoneTest extends PHPUnit\Framework\TestCase
 {
 
     /**
@@ -47,18 +47,49 @@ class PanelTest extends PHPUnit\Framework\TestCase
     public function panelDataProvider()
     {
         for ($i = 0; $i < 22; $i ++) {
-            $panel[] = [$i,$i];
+            $panel[] = [$i, $i];
         }
         return $panel;
     }
-    
+
     /**
      * @dataProvider panelDataProvider
      */
-    public function testPanel($expected,$panel)
+    public function testPanelSetAndGet($expected, $panel)
     {
-        $this->panel->set($panel);
+
+        $this->assertEquals($this->panel, $this->panel->set($panel));
         $this->assertEquals($expected, $this->panel->get());
     }
-    
+
+    public function panelExceptionDataProvider()
+    {
+        for ($i = -99; $i < 0; $i ++) {
+            $panel[] = [$i, $i];
+        }
+        for ($i = 22; $i < 100; $i ++) {
+            $panel[] = [$i, $i];
+        }
+        $panel = array_merge($panel, [
+            'string' => ['string'],
+            'object' => [new stdClass()],
+            'array' => [[0, 1, 2]]
+        ]);
+        return $panel;
+    }
+
+    /**
+     * @dataProvider panelExceptionDataProvider
+     */
+    public function testInvalidPanelException($panel)
+    {
+        $this->expectException(D\Exceptions\InvalidPanelException::class);
+        $this->panel->set($panel);
+    }
+
+    public function testPanelConstants()
+    {
+        $this->assertEquals(0, Contracts\PanelInterface::MISS);
+        $this->assertEquals(21, Contracts\PanelInterface::BULLSEYE);
+    }
 }

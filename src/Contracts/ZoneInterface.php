@@ -3,6 +3,7 @@
 namespace Aesonus\Darts\Contracts;
 
 use Aesonus\Darts\Exceptions\DartNotThrownException;
+use Aesonus\Darts\Exceptions\InvalidZoneException;
 
 /**
  *
@@ -35,6 +36,7 @@ interface ZoneInterface
      * 
      * @param string $zone zone identifier
      * @return $this 
+     * @throws InvalidZoneException
      */
     public function set($zone);
 
